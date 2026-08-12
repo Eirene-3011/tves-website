@@ -6,7 +6,7 @@ const router = express.Router();
 // POST /api/auth/login { code: "<ADMIN_MAGIC_CODE>" }
 router.post('/login', (req, res) => {
   const { code } = req.body;
-  const MAGIC_CODE = process.env.ADMIN_MAGIC_CODE || 'TVES-ADMIN-CHANGE-ME';
+  const MAGIC_CODE = process.env.ADMIN_MAGIC_CODE || '107967';
 
   if (!code || code !== MAGIC_CODE) {
     return res.status(401).json({ error: 'Invalid access code.' });
