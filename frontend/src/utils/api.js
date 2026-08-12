@@ -21,7 +21,7 @@ api.interceptors.response.use(
     if (error.response?.status === 401 || error.response?.status === 403) {
       localStorage.removeItem('tves_admin_token');
       if (window.location.pathname.startsWith('/admin') && !window.location.pathname.includes('/login')) {
-        window.location.href = '/admin/login/TVES-ADMIN-CHANGE-ME';
+        window.location.href = '/admin/login/107967';
       }
     }
     return Promise.reject(error);
