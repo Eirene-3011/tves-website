@@ -2440,3 +2440,50 @@ footer,.site-footer,#site-footer{position:relative;display:block;width:100%;back
   }
 }
 
+
+
+/* Final modal contrast lock: the profile dialog must remain a solid light
+   surface even when the surrounding organization page uses dark green panels. */
+.staff-modal-overlay > .staff-modal.card {
+  background: #ffffff !important;
+  color: #123B28 !important;
+  opacity: 1 !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+  isolation: isolate;
+  z-index: 1;
+}
+
+.staff-modal-overlay > .staff-modal.card .staff-modal-name {
+  color: #12452D !important;
+  opacity: 1 !important;
+}
+
+.staff-modal-overlay > .staff-modal.card .staff-modal-position {
+  color: #1B6B45 !important;
+  opacity: 1 !important;
+}
+
+.staff-modal-overlay > .staff-modal.card .staff-modal-meta,
+.staff-modal-overlay > .staff-modal.card .staff-modal-meta-item,
+.staff-modal-overlay > .staff-modal.card .staff-modal-meta-label,
+.staff-modal-overlay > .staff-modal.card .staff-modal-meta-value {
+  color: #38342F !important;
+  opacity: 1 !important;
+}
+
+.staff-modal-overlay > .staff-modal.card .staff-modal-meta-label {
+  font-weight: 800;
+}
+
+.staff-modal-overlay > .staff-modal.card .staff-modal-close {
+  background: #F2F1F0 !important;
+  color: #24211E !important;
+  opacity: 1 !important;
+}
+
+.staff-modal-overlay > .staff-modal.card .badge-blue {
+  background: #E7F4EC !important;
+  color: #12452D !important;
+  opacity: 1 !important;
+}
