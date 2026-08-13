@@ -506,7 +506,6 @@ export default function HomePage() {
           <h1 className="hero-headline">Tropical Village Elementary School</h1>
           <p className="hero-tagline">Guiding every learner toward academic excellence, character, and community — one school year at a time.</p>
           <div className="hero-panel-actions">
-            <Link to="/admissions" className="btn btn-primary"><span>Enroll Now</span><ArrowRightIcon className="btn-icon" /></Link>
             <button type="button" className="btn btn-outline-light" onClick={() => scrollTo('overview')}>View Dashboard</button>
           </div>
           {s.active_school_year && (
