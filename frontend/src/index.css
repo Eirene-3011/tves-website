@@ -2487,3 +2487,58 @@ footer,.site-footer,#site-footer{position:relative;display:block;width:100%;back
   color: #12452D !important;
   opacity: 1 !important;
 }
+
+/* Guidance page layout refinement */
+.guidance-page .grid-auto {
+  grid-template-columns: minmax(0, 1fr);
+  width: 100%;
+}
+
+.guidance-page .card {
+  width: 100%;
+  min-width: 0;
+}
+
+.guidance-page .card-body {
+  width: 100%;
+}
+
+.guidance-page .rich-content {
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+  line-height: 1.7;
+}
+
+.guidance-page .rich-content p,
+.guidance-page .rich-content li {
+  max-width: none;
+  text-align: left;
+  text-align-last: auto;
+  text-justify: auto;
+  text-wrap: pretty;
+  overflow-wrap: break-word;
+}
+
+.guidance-page .rich-content p {
+  margin-bottom: 1rem;
+}
+
+.guidance-page .rich-content ul,
+.guidance-page .rich-content ol {
+  width: 100%;
+  max-width: none;
+}
+
+.guidance-page .rich-content h1,
+.guidance-page .rich-content h2,
+.guidance-page .rich-content h3,
+.guidance-page .rich-content h4 {
+  max-width: none;
+}
+
+@media (max-width: 600px) {
+  .guidance-page .card-body {
+    padding: 20px;
+  }
+}
