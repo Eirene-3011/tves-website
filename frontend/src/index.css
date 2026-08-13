@@ -2542,3 +2542,134 @@ footer,.site-footer,#site-footer{position:relative;display:block;width:100%;back
     padding: 20px;
   }
 }
+/* ============================================================
+   FINAL MOBILE RESPONSIVE LAYER
+   Preserves the existing styling while making every shared
+   component and page layout fit phones and tablets cleanly.
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { max-width: 100%; overflow-x: hidden; }
+img, picture, video, canvas, iframe, svg { max-width: 100%; }
+button, input, select, textarea { max-width: 100%; font: inherit; }
+main, section, article, aside, header, footer, nav, .page, .homepage { min-width: 0; }
+:where(.container, .container-narrow) { width: min(100% - 48px, var(--container-max)); max-width: 100%; }
+:where(.grid-2, .grid-3, .grid-4, .info-panel, .stat-grid, .contact-grid, .about-layout, .staff-grid) > * { min-width: 0; }
+:where(.card, .card-body, .info-panel, .section-card, .about-section, .official-card, .committee-card, .note-panel) { max-width: 100%; }
+
+/* Long data and tables scroll within their own component instead of widening the page. */
+:where(.table-wrap, .table-responsive, .data-table-wrap, .table-container, .overflow-auto) { max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+table { max-width: 100%; border-collapse: collapse; }
+:where(.table-wrap, .table-responsive, .data-table-wrap, .table-container) table { min-width: 560px; }
+.card:has(table), .section-card:has(table) { max-width: 100%; }
+
+/* Flexible control rows and search fields. */
+:where(.toolbar, .filter-bar, .page-actions, .action-row, .search-row, .form-actions) { display: flex; flex-wrap: wrap; gap: var(--space-3); max-width: 100%; }
+:where(.search-input-wrap, .search-input-wrap-lg) { width: min(100%, 480px); max-width: 100%; }
+:where(input, select, textarea) { min-width: 0; }
+:where(.btn, .chip-invert, .badge, .status-badge) { max-width: 100%; overflow-wrap: anywhere; }
+
+@media (max-width: 1024px) {
+  .container, .container-narrow { width: calc(100% - 40px); }
+  .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .info-panel { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr 1fr; gap: var(--space-8); }
+  .about-layout { grid-template-columns: 200px minmax(0, 1fr); gap: var(--space-6); }
+  .page-header h1 { max-width: 22ch; }
+  .staff-grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
+  .timeline-content { min-width: 0; }
+}
+
+@media (max-width: 768px) {
+  :root { --header-h: 68px; }
+  .container, .container-narrow { width: calc(100% - 32px); padding-inline: 0; }
+  .section { padding-block: clamp(48px, 8vw, 68px); }
+  .section-title { font-size: clamp(1.75rem, 6vw, 2.35rem); }
+  .section-subtitle { margin-bottom: var(--space-8); }
+  p { text-align: left; }
+
+  .grid-2, .grid-3, .grid-4,
+  .quality-grid, .wellbeing-grid, .hr-grid,
+  .contact-grid, .about-layout { grid-template-columns: 1fr; }
+  .about-toc { position: relative; top: auto; }
+  .about-toc-list { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: none; }
+  .about-toc-list::-webkit-scrollbar { display: none; }
+  .about-toc-link { flex: 0 0 auto; white-space: nowrap; }
+
+  .stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .rate-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .directory-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .staff-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+  .quality-gauges { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  .page-header { padding-block: 44px 48px; }
+  .page-header h1 { max-width: none; font-size: clamp(2rem, 9vw, 3.2rem); }
+  .page-header p { font-size: var(--fs-base); }
+  .note-panel { grid-template-columns: 1fr; }
+  .committee-header { align-items: flex-start; flex-direction: column; }
+  .committee-body { padding: var(--space-5); }
+  .chip-invert { white-space: normal; }
+
+  .staff-modal-overlay { padding: 14px; align-items: center; }
+  .staff-modal { width: 100%; max-width: 100%; max-height: calc(100dvh - 28px); padding: var(--space-8) var(--space-5) var(--space-6); }
+  .staff-modal-photo { width: 124px; height: 124px; }
+
+  .footer-grid, .footer-content, .footer-main, .footer-columns { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 28px 20px !important; }
+  .footer-brand, .footer-about { grid-column: 1 / -1; }
+  .footer-bottom, .footer-meta { align-items: flex-start !important; flex-direction: column !important; gap: 8px; }
+
+  /* Existing mobile drawer stays above any backdrop and remains interactive. */
+  .site-header:has(.nav-main.is-mobile-open) { position: relative; z-index: 1003; }
+  .site-header:has(.nav-main.is-mobile-open) .nav-main,
+  .site-header:has(.nav-main.is-mobile-open) .nav-link,
+  .site-header:has(.nav-main.is-mobile-open) .dropdown-item { pointer-events: auto; }
+  .mobile-backdrop { z-index: 1001; }
+}
+
+@media (max-width: 600px) {
+  .container, .container-narrow { width: calc(100% - 30px); }
+  .section { padding-block: 48px; }
+  .section-title { font-size: clamp(1.7rem, 8vw, 2.25rem); }
+  .section-title::after { width: 56px; }
+  .section-eyebrow { font-size: .68rem; padding-inline: 9px 12px; }
+  .btn { width: 100%; min-height: 48px; padding-inline: 20px; white-space: normal; }
+  .btn-sm { width: auto; min-height: 40px; }
+  .btn-icon { width: 44px; min-width: 44px; padding: 0; }
+  .stat-grid, .rate-cards, .directory-list, .quality-gauges { grid-template-columns: 1fr; }
+  .stat-card { min-height: 0; }
+  .staff-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .official-card { padding: 16px 10px; }
+  .official-photo-wrap, .avatar-photo-lg, .avatar-placeholder-lg { width: 82px; height: 82px; }
+  .official-name { font-size: .78rem; }
+  .official-position, .official-office { font-size: .68rem; }
+  .search-input-wrap, .search-input-wrap-lg { width: 100%; }
+  .form-actions, .page-actions, .toolbar, .filter-bar { align-items: stretch; flex-direction: column; }
+  .form-actions .btn, .page-actions .btn, .toolbar .btn, .filter-bar .btn { width: 100%; }
+  .timeline-node { width: 40px; height: 40px; font-size: 1rem; }
+  .timeline-line { left: 19px; }
+  .timeline-content { padding-top: 2px; }
+  .note-panel, .about-section, .committee-body { padding: 18px; }
+  .page-header + .section .container[style*="maxWidth"] { max-width: calc(100% - 30px) !important; }
+  .page-header + .section .stat-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .page-header + .section .stat-card { padding: 14px 12px !important; }
+  .page-header + .section table { min-width: 560px; }
+  .footer-grid, .footer-content, .footer-main, .footer-columns { grid-template-columns: 1fr !important; gap: 24px !important; }
+  .footer-brand, .footer-about { grid-column: auto; }
+  footer > div, .site-footer > div, .footer-section > div, #site-footer > div { width: calc(100% - 30px); }
+}
+
+@media (max-width: 420px) {
+  .container, .container-narrow { width: calc(100% - 24px); }
+  .section { padding-block: 42px; }
+  h1 { font-size: clamp(2rem, 11vw, 2.8rem); }
+  .card-body { padding: 18px; }
+  .staff-grid { grid-template-columns: 1fr 1fr; }
+  .staff-modal { padding-inline: 18px; }
+  .staff-modal-photo { width: 112px; height: 112px; }
+  .footer-bottom-links { gap: 8px 12px; }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .btn, button, .about-toc-link, .dash-nav-btn, .official-card-clickable { min-height: 44px; }
+  .btn-icon { min-height: 44px; }
+  .card:hover, .official-card:hover, .subpage-card:hover { transform: none; }
+}
