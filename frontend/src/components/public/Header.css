@@ -180,6 +180,45 @@ html { overflow-x: hidden; }
   body:has(.nav-main.is-mobile-open) { overflow: hidden; }
 }
 
+/* Mobile navbar blur fix */
+@media (max-width: 940px) {
+  /* Keep the navigation drawer above the overlay. */
+  .site-header:has(.nav-main.is-mobile-open) .nav-bar {
+    z-index: 1003;
+  }
+
+  /* Keep the page dimmed, but do not blur it. */
+  .mobile-backdrop {
+    z-index: 1001;
+    background: rgba(10, 27, 18, 0.48);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  /* Keep the drawer itself opaque and crisp. */
+  .nav-main.is-mobile-open {
+    z-index: 1004;
+    background: var(--green-950);
+    isolation: isolate;
+  }
+}
+
+/* If the sticky nav itself is being blurred on phones, disable that effect too. */
+@media (max-width: 940px) {
+  .nav-bar.is-sticky {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+
+/* Optional fallback for browsers that do not support :has(). */
+@media (max-width: 940px) {
+  .nav-main.is-mobile-open {
+    position: fixed;
+  }
+}
+
+
 @media (max-width: 600px) {
   .header-container { padding-inline: clamp(14px, 4.5vw, 17px); }
   .utility-inner { justify-content: center; }
