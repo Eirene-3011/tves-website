@@ -38,17 +38,6 @@ export default function GuidancePage() {
               />
             </article>
 
-            <aside className="card card-body">
-              <span className="section-eyebrow">A caring pathway</span>
-              <h3>Support starts with listening.</h3>
-              <p>
-                TVES works with learners and families to encourage wellbeing, positive participation, and continued growth.
-              </p>
-              <div className="divider-stitch" />
-              <p>
-                Official guidance, counselling, referral, and student-support updates will be posted here after confirmation.
-              </p>
-            </aside>
           </div>
         </div>
       </section>
