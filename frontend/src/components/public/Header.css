@@ -276,3 +276,26 @@ html { overflow-x: hidden; }
     isolation: isolate;
   }
 }
+/* Mobile navbar click fix: the header creates a stacking context, so raise the whole header above the backdrop. */
+@media (max-width: 940px) {
+  .site-header:has(.nav-main.is-mobile-open) {
+    position: relative;
+    z-index: 1003;
+  }
+
+  .site-header:has(.nav-main.is-mobile-open) .nav-bar,
+  .site-header:has(.nav-main.is-mobile-open) .nav-main,
+  .site-header:has(.nav-main.is-mobile-open) .nav-link,
+  .site-header:has(.nav-main.is-mobile-open) .dropdown-item {
+    pointer-events: auto;
+  }
+
+  .mobile-backdrop {
+    z-index: 1001;
+    pointer-events: auto;
+  }
+
+  .nav-main.is-mobile-open {
+    z-index: 1004;
+  }
+}
