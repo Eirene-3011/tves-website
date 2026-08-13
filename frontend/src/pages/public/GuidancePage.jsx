@@ -30,7 +30,6 @@ export default function GuidancePage() {
 
           <div className="grid-auto">
             <article className="card card-body">
-              <span className="section-eyebrow">Student services</span>
               <h2 className="section-title">{content?.title || 'Student Services'}</h2>
               <div
                 className="rich-content"
