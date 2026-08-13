@@ -218,3 +218,22 @@ html { overflow-x: hidden; }
   .menu-button:hover,
   .logo-frame:hover { transform: none; }
 }
+
+/* Mobile drawer clarity fix: keep the drawer above the backdrop and disable backdrop blur on touch layouts. */
+@media (max-width: 940px) {
+  .site-header:has(.nav-main.is-mobile-open) .nav-bar {
+    z-index: 1003;
+  }
+
+  .mobile-backdrop {
+    z-index: 1001;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .nav-main.is-mobile-open {
+    z-index: 1004;
+    background: var(--green-950);
+    isolation: isolate;
+  }
+}
